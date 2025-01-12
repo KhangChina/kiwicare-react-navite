@@ -1,3 +1,4 @@
+import { Redirect, router } from "expo-router";
 import React, { useRef, useState } from "react";
 import {
   StyleSheet,
@@ -6,8 +7,6 @@ import {
   FlatList,
   useWindowDimensions,
   Image,
-  Animated,
-  Button,
   TouchableOpacity,
   NativeSyntheticEvent,
   NativeScrollEvent,
@@ -42,10 +41,15 @@ export function Onboarding() {
   const [textButton, setTextButton] = useState("Next");
 
   const handleNext = () => {
+    console.log(textButton);
+    if (textButton == "Login") {
+      router.push("/login", { relativeToDirectory: true })
+    }
+
     if (currentIndex < count - 1) {
       const nextIndex = currentIndex + 1;
       flatListRef.current?.scrollToIndex({ index: nextIndex });
-      setCurrentIndex(nextIndex); 
+      setCurrentIndex(nextIndex);
       if (nextIndex == count - 1) {
         setTextButton("Login");
       } else {
@@ -56,7 +60,7 @@ export function Onboarding() {
   const { width } = useWindowDimensions();
   const handleScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offsetX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(offsetX / width); 
+    const index = Math.round(offsetX / width);
     setCurrentIndex(index);
 
     if (index == count - 1) {
@@ -64,7 +68,6 @@ export function Onboarding() {
     } else {
       setTextButton("Next");
     }
-
   };
 
   return (
