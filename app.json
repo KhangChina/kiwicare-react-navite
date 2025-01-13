@@ -1,17 +1,13 @@
 {
   "expo": {
-    "name": "new-app",
-    "slug": "new-app",
+    "name": "kiwicare-react-navite",
+    "slug": "kiwicare-react-navite",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "scheme": "routerleaning",
     "ios": {
       "supportsTablet": true
     },
@@ -25,7 +21,15 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "./assets/splash-icon.png"
+        }
+      ],
+      "react-native-edge-to-edge"
     ]
   }
 }

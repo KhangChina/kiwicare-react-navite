@@ -1,4 +1,4 @@
-import { Redirect, router } from "expo-router";
+
 import React, { useRef, useState } from "react";
 import {
   StyleSheet,
@@ -11,41 +11,41 @@ import {
   NativeSyntheticEvent,
   NativeScrollEvent,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 const slides = [
   {
     id: "1",
-    image: require("../assets/slider/1.png"),
+    image: require("../../assets/1.png"),
     title: "Create a prototype in just a few minutes 1",
     description:
       "Enjoy these pre-made components and worry only about creating the best product ever.",
   },
   {
     id: "2",
-    image: require("../assets/slider/1.png"),
+    image:  require("../../assets/1.png"),
     title: "Create a prototype in just a few minutes 2",
     description:
       "Enjoy these pre-made components and worry only about creating the best product ever.",
   },
   {
     id: "3",
-    image: require("../assets/slider/1.png"),
+    image:  require("../../assets/1.png"),
     title: "Create a prototype in just a few minutes 3",
     description:
       "Enjoy these pre-made components and worry only about creating the best product ever.",
   },
 ];
 const count = slides.length;
-export function Onboarding() {
+export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
   const [textButton, setTextButton] = useState("Next");
+  const navigation = useNavigation();
 
   const handleNext = () => {
-    console.log(textButton);
     if (textButton == "Login") {
-      router.push("/login", { relativeToDirectory: true })
+        navigation.navigate('Login')
     }
-
     if (currentIndex < count - 1) {
       const nextIndex = currentIndex + 1;
       flatListRef.current?.scrollToIndex({ index: nextIndex });
