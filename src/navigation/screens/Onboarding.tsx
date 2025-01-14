@@ -41,14 +41,16 @@ export default function Onboarding() {
   const flatListRef = useRef<FlatList>(null);
   const [textButton, setTextButton] = useState("Next");
   const navigation = useNavigation();
+  const { width } = useWindowDimensions();
 
-  const handleNext = () => {
+  const handleScrollNext = () => {
     if (textButton == "Login") {
         navigation.navigate('Login')
     }
     if (currentIndex < count - 1) {
       const nextIndex = currentIndex + 1;
-      flatListRef.current?.scrollToIndex({ index: nextIndex });
+      flatListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
+      //flatListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
       setCurrentIndex(nextIndex);
       if (nextIndex == count - 1) {
         setTextButton("Login");
@@ -57,12 +59,11 @@ export default function Onboarding() {
       }
     }
   };
-  const { width } = useWindowDimensions();
+  
   const handleScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offsetX = event.nativeEvent.contentOffset.x;
     const index = Math.round(offsetX / width);
     setCurrentIndex(index);
-
     if (index == count - 1) {
       setTextButton("Login");
     } else {
@@ -81,9 +82,15 @@ export default function Onboarding() {
         horizontal
         showsHorizontalScrollIndicator={false}
         onMomentumScrollEnd={handleScrollEnd}
+        //Web
+        getItemLayout={(data, index) => ({
+          length: width,
+          offset: width * index,
+          index,
+        })}
       />
       <View style={styles.submit}>
-        <TouchableOpacity style={styles.button} onPress={handleNext}>
+        <TouchableOpacity style={styles.button} onPress={handleScrollNext}>
           <Text style={styles.text_button}>{textButton}</Text>
         </TouchableOpacity>
       </View>
@@ -92,8 +99,6 @@ export default function Onboarding() {
 }
 
 export function OnboardingItem({ item, count }: { item: any; count: any }) {
-  function nextScreen() {}
-
   const { width, height } = useWindowDimensions();
   return (
     <View style={[styles.item, { width: width }]}>
