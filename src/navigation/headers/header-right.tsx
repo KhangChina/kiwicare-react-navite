@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     justifyContent:"center",
     alignContent: "center",
-    // height:15,
+    gap: 16,
+    paddingHorizontal: 24,
+    height:72,
+    paddingVertical:24
   }
 });

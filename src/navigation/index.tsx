@@ -15,6 +15,34 @@ import { NotFound } from "./screens/NotFound";
 import Login from "./screens/Login";
 import Onboarding from "./screens/Onboarding";
 import { HeaderRight } from "./headers/header-right";
+import { HeaderLeft } from "./headers/header-left";
+import { Ionicons } from "@expo/vector-icons";
+
+const actionTab = (focused: any) => {
+  console.log(focused);
+  if (focused) {
+    return (
+      <Image
+        source={require("../assets/explore_active.png")}
+        // tintColor="#006FFD"
+        style={{
+          width: 24,
+          height: 24,
+        }}
+      />
+    );
+  }
+  return (
+    <Image
+      source={require("../assets/Explore.png")}
+      //tintColor="#D4D6DD"
+      style={{
+        width: 24,
+        height: 24,
+      }}
+    />
+  );
+};
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
@@ -23,16 +51,18 @@ const HomeTabs = createBottomTabNavigator({
       options: {
         // title: "Feed",
         headerShown: false,
-        tabBarIcon: ({ color, size }) => (
-          <Image
-            source={newspaper}
-            tintColor={color}
-            style={{
-              width: size,
-              height: size,
-            }}
-          />
-        ),
+        tabBarIcon: ({ focused }) => actionTab(focused),
+        tabBarLabelStyle: {
+          fontSize: 16,
+          fontFamily: "Georgia",
+          fontWeight: 300,
+        },
+        tabBarStyle:{
+          height:88,
+          justifyContent: 'center',
+          alignItems:'center',
+          paddingTop:16,
+         },
       },
     },
     Updates: {
@@ -53,12 +83,6 @@ const HomeTabs = createBottomTabNavigator({
   },
 });
 
-
-const headerLeft = () => {
-  return <Text>Hello</Text>;
-};
-
-
 const RootStack = createNativeStackNavigator({
   screens: {
     Onboarding: {
@@ -78,18 +102,17 @@ const RootStack = createNativeStackNavigator({
     HomeTabs: {
       screen: HomeTabs,
       options: {
-       // header: ()=>HeaderRight()
+        // header: ()=>HeaderRight()
         // headerSearchBarOptions:{
         //  inputType:"text",
         //  placeholder: "Search product",
         //  statusBarTranslucent: false
         // },
-     // title:"",
-      //headerLargeTitle:true,
-       //headerLeft: () => headerLeft(),
+        title: "",
+        headerLeft: () => HeaderLeft(),
         // title: "Home",
         // headerShown: false,
-        headerRight:() => HeaderRight()
+        headerRight: () => HeaderRight(),
       },
     },
     Settings: {
