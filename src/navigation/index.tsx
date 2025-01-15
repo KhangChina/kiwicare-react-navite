@@ -150,9 +150,6 @@ const HomeTabs = createBottomTabNavigator({
     Special: {
       screen: Updates,
       headerShown: false,
-      // tabBarStyle: {
-      //   backgroundColor: "transparent",
-      // },
     },
     Stores: {
       screen: Updates,
@@ -188,16 +185,8 @@ const RootStack = createNativeStackNavigator({
     HomeTabs: {
       screen: HomeTabs,
       options: {
-        // header: ()=>HeaderRight()
-        // headerSearchBarOptions:{
-        //  inputType:"text",
-        //  placeholder: "Search product",
-        //  statusBarTranslucent: false
-        // },
         title: "",
         headerLeft: () => HeaderLeft(),
-        // title: "Home",
-        // headerShown: false,
         headerRight: () => HeaderRight(),
       },
     },
