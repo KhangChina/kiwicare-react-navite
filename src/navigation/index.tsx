@@ -126,7 +126,7 @@ const HomeTabs = createBottomTabNavigator({
       alignItems: "center",
       paddingTop: 30,
     },
-    tabBarButton: (props) => (
+    tabBarButton: (props: any) => (
       <TouchableOpacity {...props} activeOpacity={0.6}>
         {props.children}
       </TouchableOpacity>
@@ -150,9 +150,9 @@ const HomeTabs = createBottomTabNavigator({
     Special: {
       screen: Updates,
       headerShown: false,
-      tabBarStyle: {
-        backgroundColor: "transparent",
-      },
+      // tabBarStyle: {
+      //   backgroundColor: "transparent",
+      // },
     },
     Stores: {
       screen: Updates,
