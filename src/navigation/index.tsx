@@ -147,10 +147,10 @@ const HomeTabs = createBottomTabNavigator({
         headerShown: false,
       },
     },
-    Special: {
-      screen: Updates,
-      headerShown: false,
-    },
+    // Special: {
+    //   screen: Updates,
+    //   headerShown: false,
+    // },
     Stores: {
       screen: Updates,
       options: {

@@ -97,26 +97,39 @@ export function Home() {
         />
       </View>
 
-      {/* <View style={styles.container_summer}>
+      <View style={styles.container_event}>
         <View style={styles.container_text}>
           <Text style={styles.perfect_text}>Your events</Text>
 
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <Text style={styles.see_more}>See more</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
 
-        <FlatList
-          data={DATA}
-          renderItem={({ item }: any) => <Item title={item.title} />}
-          keyExtractor={(item: any) => item.id}
-        />
-      </View> */}
-
-
-
-
-
+        <View style={styles.list_events}>
+          <View style={styles.item_event}>
+            <Image
+              source={require("../../assets/event.png")}
+              style={styles.item_images_event}
+            />
+            <View style={styles.item_event_text}>
+              <Text style={{ fontSize: 14, fontWeight: 700 }}>
+                Michael Jackson
+              </Text>
+              <Text style={{ fontSize: 12, fontWeight: 400 }}>
+                Recife, Brazil
+              </Text>
+            </View>
+            <View style={{ justifyContent: "center", paddingRight: 16 }}>
+              <Image
+                source={require("../../assets/ArrowRight.png")}
+                resizeMode="cover"
+                style={{ width: 12, height: 12 }}
+              />
+            </View>
+          </View>
+        </View>
+      </View>
     </ScrollView>
   );
 }
@@ -125,7 +138,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "#F8F9FE",
+    backgroundColor: "#FFFFFF",
   },
   container_perfect: {
     paddingTop: 24,
@@ -151,12 +164,36 @@ const styles = StyleSheet.create({
   },
   item: {
     width: 200,
-    backgroundColor: "#EAF2FF",
+    backgroundColor: "#F8F9FE",
     marginRight: 12,
     height: 189,
     borderRadius: 16,
   },
   title: {
     fontSize: 32,
+  },
+  container_event: { paddingTop: 40 },
+  list_events: {
+    paddingHorizontal: 16,
+  },
+  item_event: {
+    flexDirection: "row",
+    height: 69,
+    borderRadius: 16,
+    backgroundColor: "#F8F9FE",
+    justifyContent: "space-between",
+  },
+  item_event_text: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignContent: "flex-start",
+    paddingLeft: 16,
+    flex: 1,
+  },
+  item_images_event: {
+    width: 80,
+    height: 69,
+    borderTopLeftRadius: 16,
+    borderBottomLeftRadius: 16,
   },
 });
