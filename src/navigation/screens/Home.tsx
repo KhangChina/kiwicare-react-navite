@@ -68,7 +68,7 @@ export function Home() {
     );
   }
 
-  function ItemEvent() {
+  function ItemEvent( item : any) {
     return (
       <View style={styles.item_event}>
         <Image
@@ -99,6 +99,18 @@ export function Home() {
           images={images_banner}
           ImageComponentStyle={{
             resizeMode: "cover",
+          }}
+          autoplay={true}
+          circleLoop= {true}
+          autoplayInterval= {3000}
+          dotColor={"#006FFD"}
+          inactiveDotColor={"#8F9098"}
+          paginationBoxVerticalPadding = {15}
+          dotStyle= {{
+            borderRadius: 24,
+            width: 8,
+            height: 8,
+            marginHorizontal: -8,
           }}
         />
       </View>
@@ -152,7 +164,7 @@ export function Home() {
 
         <View style={styles.list_events}>
           {data_fake.map((item) => (
-            <ItemEvent />
+            <ItemEvent  key={item.id} item={item} />
           ))}
         </View>
       </View>
@@ -203,8 +215,8 @@ const styles = StyleSheet.create({
   container_event: { paddingTop: 40 },
   list_events: {
     paddingHorizontal: 16,
-    gap:12,
-    paddingBottom:12
+    gap: 12,
+    paddingBottom: 12,
   },
   item_event: {
     flexDirection: "row",
