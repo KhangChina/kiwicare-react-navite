@@ -25,29 +25,73 @@ export function Home() {
 
   const navigation = useNavigation();
 
-  const DATA = [
+  const data_fake = [
     {
       id: 1,
-      title: "First Item",
+      name: "Amazing T-shirt",
+      price: "VND 12.00",
+      image: require("../../assets/image_list.png"),
     },
     {
       id: 2,
-      title: "Second Item",
+      name: "Faboulous Pants",
+      price: "VND 15.00",
+      image: require("../../assets/image_list.png"),
     },
     {
       id: 3,
-      title: "Third Item",
+      name: "Spectacular Dress",
+      price: "VND 20.00",
+      image: require("../../assets/image_list.png"),
     },
   ];
-  const Item = ({ title }: any) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
+  // const Item = () => console.log(name);
 
-  function logout() {
-    navigation.navigate("Login");
+  function Item({ name, price, image }: any) {
+    return (
+      <View style={styles.item}>
+        <Image
+          source={image}
+          style={{
+            height: 120,
+            width: "100%",
+            borderTopLeftRadius: 16,
+            borderTopRightRadius: 16,
+          }}
+          resizeMode="cover"
+        />
+        <View style={{ flexDirection: "column", padding: 16 }}>
+          <Text style={{ fontSize: 12, fontWeight: 400 }}>{name}</Text>
+          <Text style={{ fontSize: 14, fontWeight: 700 }}>{price}</Text>
+        </View>
+      </View>
+    );
   }
+
+  function ItemEvent() {
+    return (
+      <View style={styles.item_event}>
+        <Image
+          source={require("../../assets/event.png")}
+          style={styles.item_images_event}
+        />
+        <View style={styles.item_event_text}>
+          <Text style={{ fontSize: 14, fontWeight: 700 }}>Michael Jackson</Text>
+          <Text style={{ fontSize: 12, fontWeight: 400 }}>Recife, Brazil</Text>
+        </View>
+        <View style={{ justifyContent: "center", paddingRight: 16 }}>
+          <Image
+            source={require("../../assets/ArrowRight.png")}
+            resizeMode="cover"
+            style={{ width: 12, height: 12 }}
+          />
+        </View>
+      </View>
+    );
+  }
+  // function logout() {
+  //   navigation.navigate("Login");
+  // }
   return (
     <ScrollView style={styles.container}>
       <View style={{ width: width }}>
@@ -69,8 +113,10 @@ export function Home() {
         </View>
 
         <FlatList
-          data={DATA}
-          renderItem={({ item }: any) => <Item title={item.title} />}
+          data={data_fake}
+          renderItem={({ item }: any) => (
+            <Item name={item.name} price={item.price} image={item.image} />
+          )}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 16 }}
@@ -88,8 +134,10 @@ export function Home() {
         </View>
 
         <FlatList
-          data={DATA}
-          renderItem={({ item }: any) => <Item title={item.title} />}
+          data={data_fake}
+          renderItem={({ item }: any) => (
+            <Item name={item.name} price={item.price} image={item.image} />
+          )}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 16 }}
@@ -100,34 +148,12 @@ export function Home() {
       <View style={styles.container_event}>
         <View style={styles.container_text}>
           <Text style={styles.perfect_text}>Your events</Text>
-
-          {/* <TouchableOpacity>
-            <Text style={styles.see_more}>See more</Text>
-          </TouchableOpacity> */}
         </View>
 
         <View style={styles.list_events}>
-          <View style={styles.item_event}>
-            <Image
-              source={require("../../assets/event.png")}
-              style={styles.item_images_event}
-            />
-            <View style={styles.item_event_text}>
-              <Text style={{ fontSize: 14, fontWeight: 700 }}>
-                Michael Jackson
-              </Text>
-              <Text style={{ fontSize: 12, fontWeight: 400 }}>
-                Recife, Brazil
-              </Text>
-            </View>
-            <View style={{ justifyContent: "center", paddingRight: 16 }}>
-              <Image
-                source={require("../../assets/ArrowRight.png")}
-                resizeMode="cover"
-                style={{ width: 12, height: 12 }}
-              />
-            </View>
-          </View>
+          {data_fake.map((item) => (
+            <ItemEvent />
+          ))}
         </View>
       </View>
     </ScrollView>
@@ -163,18 +189,22 @@ const styles = StyleSheet.create({
     color: "#006FFD",
   },
   item: {
+    flexDirection: "column",
     width: 200,
     backgroundColor: "#F8F9FE",
     marginRight: 12,
     height: 189,
     borderRadius: 16,
   },
-  title: {
-    fontSize: 32,
+  name: {
+    fontSize: 12,
+    fontWeight: 400,
   },
   container_event: { paddingTop: 40 },
   list_events: {
     paddingHorizontal: 16,
+    gap:12,
+    paddingBottom:12
   },
   item_event: {
     flexDirection: "row",
