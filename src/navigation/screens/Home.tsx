@@ -107,7 +107,7 @@ export function Home() {
           inactiveDotColor={"#8F9098"}
           paginationBoxVerticalPadding = {15}
           dotStyle= {{
-            borderRadius: 24,
+            borderRadius: 24, 
             width: 8,
             height: 8,
             marginHorizontal: -8,
