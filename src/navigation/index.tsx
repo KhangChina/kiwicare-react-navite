@@ -14,6 +14,8 @@ import Login from "./screens/Login";
 import Onboarding from "./screens/Onboarding";
 import { HeaderRight } from "./headers/header-right";
 import { HeaderLeft } from "./headers/header-left";
+import { ProductDetail } from "./screens/ProductDetail";
+import { HeaderDetailLeft } from "./headers/header-detail-left";
 
 const render_main = (iconSource: any, labelText: any, textColor: any) => {
   return (
@@ -188,6 +190,7 @@ const RootStack = createNativeStackNavigator({
         title: "",
         headerLeft: () => HeaderLeft(),
         headerRight: () => HeaderRight(),
+        headerShadowVisible : false
       },
     },
     Settings: {
@@ -199,6 +202,16 @@ const RootStack = createNativeStackNavigator({
             <Text>Close</Text>
           </HeaderButton>
         ),
+      }),
+    },
+    ProductDetail: {
+      screen: ProductDetail,
+      options: ({ navigation }) => ({
+        title: "",
+        presentation: "modal",
+        headerLeft:()=> HeaderDetailLeft(navigation),
+        headerBackVisible : false,
+        headerTransparent: true
       }),
     },
     NotFound: {

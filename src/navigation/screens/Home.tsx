@@ -5,8 +5,6 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Button,
-  ViewStyle,
   useWindowDimensions,
   FlatList,
   ScrollView,
@@ -47,9 +45,16 @@ export function Home() {
   ];
   // const Item = () => console.log(name);
 
+  function nav_product_detail(item: any)
+  {
+    navigation.navigate("ProductDetail")
+    //console.log("nav")
+  }
+
   function Item({ name, price, image }: any) {
     return (
-      <View style={styles.item}>
+      <TouchableOpacity style={styles.item} 
+      onPress={() => nav_product_detail({ name, price, image }) } >
         <Image
           source={image}
           style={{
@@ -64,7 +69,7 @@ export function Home() {
           <Text style={{ fontSize: 12, fontWeight: 400 }}>{name}</Text>
           <Text style={{ fontSize: 14, fontWeight: 700 }}>{price}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 
