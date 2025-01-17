@@ -37,9 +37,9 @@ const render_main = (iconSource: any, labelText: any, textColor: any) => {
       />
       <Text
         style={{
-          fontSize: 16,
+          fontSize: 12,
           color: textColor,
-          fontWeight: 300,
+          fontFamily:'Inter_18pt-Bold'
         }}
       >
         {labelText}

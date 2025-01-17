@@ -82,7 +82,7 @@ export function Home() {
         />
         <View style={styles.item_event_text}>
           <Text style={{ fontSize: 14, fontFamily:'Inter_18pt-Bold' }}>Michael Jackson</Text>
-          <Text style={{ fontSize: 12, fontWeight: 400,fontFamily:'Inter' }}>Recife, Brazil</Text>
+          <Text style={{ fontSize: 12, fontWeight: 400, fontFamily:'Inter'}}>Recife, Brazil</Text>
         </View>
         <View style={{ justifyContent: "center", paddingRight: 16 }}>
           <Image

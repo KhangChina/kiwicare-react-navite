@@ -15,8 +15,7 @@ SplashScreen.preventAutoHideAsync();
 
 export function App() {
   const [fontsLoaded] = useFonts({
-    // "Inter-Italic": require('./assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
-    // "Inter-VariableFont": require('./assets/fonts/Inter-VariableFont_opsz,wght.ttf'),
+    'Inter':require('./assets/fonts/static/Inter_18pt-Medium.ttf'),
     "Inter_18pt-Bold": require('./assets/fonts/static/Inter_18pt-Bold.ttf')
   });
   if (!fontsLoaded) {

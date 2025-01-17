@@ -56,7 +56,7 @@ export function ProductDetail() {
           }}
           onPress={() => handleSelected(item.item.id)}
         >
-          <Text style={{ fontSize: 10, fontWeight: 600, color: "#FFFFFF" }}>
+          <Text style={{ fontSize: 10, color: "#FFFFFF", fontFamily:'Inter_18pt-Bold' }}>
             {item.item.name}
           </Text>
         </TouchableOpacity>
@@ -72,10 +72,11 @@ export function ProductDetail() {
           borderRadius: 12,
           backgroundColor: "#EAF2FF",
           marginRight: 8,
+          
         }}
         onPress={() => handleSelected(item.item.id)}
       >
-        <Text style={{ fontSize: 10, fontWeight: 600, color: "#006FFD" }}>
+        <Text style={{ fontSize: 10, fontWeight: 600, color: "#006FFD",fontFamily:'Inter_18pt-Bold' }}>
           {item.item.name}
         </Text>
       </TouchableOpacity>
@@ -114,17 +115,17 @@ export function ProductDetail() {
 
       <View style={styles.container_product}>
         <View style={styles.text_name_product}>
-          <Text style={{ fontSize: 18, fontWeight: 800 }}>Amazing T-Shirt</Text>
+          <Text style={{ fontSize: 18,fontFamily:'Inter_18pt-Bold' }}>Amazing T-Shirt</Text>
           <Image
             source={require("../../assets/Heart.png")}
             style={{ width: 24, height: 24 }}
             resizeMode="contain"
           />
         </View>
-        <Text style={{ fontSize: 16, fontWeight: 400, marginBottom: 24 }}>
+        <Text style={{ fontSize: 16, fontWeight: 400, marginBottom: 24,fontFamily:'Inter' }}>
           VND 12.00
         </Text>
-        <Text style={{ fontSize: 12, fontWeight: 400 }}>
+        <Text style={{ fontSize: 12, fontWeight: 400,fontFamily:'Inter' }}>
           The perfect T-shirt for when you want to feel comfortable but still
           stylish. Amazing for all ocasions. Made of 100% cotton fabric in four
           colours. Its modern style gives a lighter look to the outfit. Perfect
@@ -133,7 +134,7 @@ export function ProductDetail() {
       </View>
 
       <View style={styles.container_size}>
-        <Text style={{ fontSize: 12, fontWeight: 700 }}>Size</Text>
+        <Text style={{ fontSize: 12,fontFamily:'Inter_18pt-Bold' }}>Size</Text>
         <FlatList
           //   ref={flatListRef}
           data={dataSize}
