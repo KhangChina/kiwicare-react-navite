@@ -3,7 +3,8 @@ import { Asset } from 'expo-asset';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
 import { Navigation } from './navigation';
-
+import { useFonts } from 'expo-font';
+import { View, Text, StyleSheet } from 'react-native';
 Asset.loadAsync([
   ...NavigationAssets,
   require('./assets/newspaper.png'),
@@ -13,6 +14,14 @@ Asset.loadAsync([
 SplashScreen.preventAutoHideAsync();
 
 export function App() {
+  const [fontsLoaded] = useFonts({
+    // "Inter-Italic": require('./assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf'),
+    // "Inter-VariableFont": require('./assets/fonts/Inter-VariableFont_opsz,wght.ttf'),
+    "Inter_18pt-Bold": require('./assets/fonts/static/Inter_18pt-Bold.ttf')
+  });
+  if (!fontsLoaded) {
+    return null; // Hiển thị màn hình chờ nếu font chưa tải xong
+  }
   return (
     <Navigation
       linking={{

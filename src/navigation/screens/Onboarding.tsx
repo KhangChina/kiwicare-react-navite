@@ -167,14 +167,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
     color: "#000",
+    fontFamily: 'Inter_18pt-Bold',
   },
   description: {
     paddingTop: 24,
     color: "#71727A",
     fontSize: 12,
     width: 290,
+    fontFamily: 'Inter',
   },
   submit: {
     paddingHorizontal: 24,
@@ -190,7 +191,8 @@ const styles = StyleSheet.create({
   },
   text_button: {
     color: "#FFFFFF",
-    fontWeight: "bold",
+    // fontWeight: "bold",
     fontSize: 12,
+    fontFamily: 'Inter_18pt-Bold',
   },
 });

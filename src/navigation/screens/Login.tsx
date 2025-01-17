@@ -122,10 +122,8 @@ const styles = StyleSheet.create({
   },
   text_welcome: {
     fontSize: 24,
-    fontWeight: 800,
     color: "#000000",
-    fontStyle: "normal",
-    lineHeight: 24,
+    fontFamily: 'Inter_18pt-Bold',
   },
   input: {
     borderWidth: 1,
@@ -135,6 +133,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
     marginTop: 24,
+    fontFamily:'Inter',
   },
   input_password_container: {
     flexDirection: "row",
@@ -150,13 +149,14 @@ const styles = StyleSheet.create({
   input_password: {
     height: 48,
     width: "95%",
+    fontFamily:'Inter'
   },
   text_forgot: {
     marginTop: 16,
     marginBottom: 24,
     color: "#006FFD",
     fontWeight: "600",
-    fontStyle: "normal",
+    fontFamily:'Inter_18pt-Bold',
   },
   button: {
     alignItems: "center",
@@ -168,8 +168,8 @@ const styles = StyleSheet.create({
   },
   text_button: {
     color: "#FFFFFF",
-    fontWeight: "bold",
     fontSize: 12,
+    fontFamily:'Inter_18pt-Bold',
   },
 
   register_container: {
@@ -181,11 +181,12 @@ const styles = StyleSheet.create({
   register_text: {
     color: "#006FFD",
     fontWeight: "600",
-    fontStyle: "normal",
+    fontFamily:'Inter_18pt-Bold',
   },
 
   not_a_member_text: {
     color: "#71727A",
+    fontFamily:'Inter',
   },
   line: {
     borderTopWidth: 0.5,
@@ -196,6 +197,7 @@ const styles = StyleSheet.create({
   continue_with_text: {
     color: "#71727A",
     textAlign: "center",
+    fontFamily:'Inter',
   },
   login_by: {
     flexDirection: "row",

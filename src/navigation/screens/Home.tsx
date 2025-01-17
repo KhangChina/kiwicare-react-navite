@@ -66,8 +66,8 @@ export function Home() {
           resizeMode="cover"
         />
         <View style={{ flexDirection: "column", padding: 16 }}>
-          <Text style={{ fontSize: 12, fontWeight: 400 }}>{name}</Text>
-          <Text style={{ fontSize: 14, fontWeight: 700 }}>{price}</Text>
+          <Text style={{ fontSize: 12, fontWeight: 400, fontFamily:'Inter' }}>{name}</Text>
+          <Text style={{ fontSize: 14, fontFamily:'Inter_18pt-Bold', }}>{price}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -81,8 +81,8 @@ export function Home() {
           style={styles.item_images_event}
         />
         <View style={styles.item_event_text}>
-          <Text style={{ fontSize: 14, fontWeight: 700 }}>Michael Jackson</Text>
-          <Text style={{ fontSize: 12, fontWeight: 400 }}>Recife, Brazil</Text>
+          <Text style={{ fontSize: 14, fontFamily:'Inter_18pt-Bold' }}>Michael Jackson</Text>
+          <Text style={{ fontSize: 12, fontWeight: 400,fontFamily:'Inter' }}>Recife, Brazil</Text>
         </View>
         <View style={{ justifyContent: "center", paddingRight: 16 }}>
           <Image
@@ -197,13 +197,14 @@ const styles = StyleSheet.create({
   },
   perfect_text: {
     fontSize: 14,
-    fontWeight: 700,
     color: "#000000",
+    fontFamily:'Inter_18pt-Bold',
+    marginBottom:16
   },
   see_more: {
     fontSize: 12,
-    fontWeight: 600,
     color: "#006FFD",
+    fontFamily:'Inter_18pt-Bold',
   },
   item: {
     flexDirection: "column",
