@@ -143,7 +143,7 @@ export function Home() {
 
       <View style={styles.container_summer}>
         <View style={styles.container_text}>
-          <Text style={styles.perfect_text}>Perfect for you</Text>
+          <Text style={styles.perfect_text}>For this summer</Text>
 
           <TouchableOpacity>
             <Text style={styles.see_more}>See more</Text>
