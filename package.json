@@ -6,7 +6,8 @@
     "start": "expo start --go",
     "web": "expo start --web",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "build": "eas build --platform android"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.0",
